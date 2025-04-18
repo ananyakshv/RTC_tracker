@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Season Data</title>
+    <style>
+        body { font-family: Arial; padding: 20px; }
+        .year { margin-top: 20px; font-size: 20px; font-weight: bold; }
+        .season { margin-left: 20px; margin-top: 10px; }
+        .farmer { margin-left: 40px; color: green; }
+    </style>
+</head>
+<body>
+    <h1>Crop Season History (2012–2020)</h1>
+
+    {% for season in seasons %}
+        <div class="year">{{ season.year }} - {{ season.get_season_display }}</div>
+        <div class="season">Farmers:</div>
+        {% for farmer in season.farmers.all %}
+            <div class="farmer">→ {{ farmer.name }}</div>
+        {% endfor %}
+    {% empty %}
+        <p>No crop season data available.</p>
+    {% endfor %}
+</body>
+</html>
