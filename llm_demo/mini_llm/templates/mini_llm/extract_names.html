@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gemini Name Extractor</title>
+</head>
+<body>
+    <h2>Enter Text to Extract Names</h2>
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="input_text" rows="6" cols="60"></textarea><br><br>
+        <button type="submit">Extract</button>
+    </form>
+
+    {% if result %}
+        <h3>Extracted Names:</h3>
+        <pre>{{ result }}</pre>
+    {% endif %}
+</body>
+</html>
+
