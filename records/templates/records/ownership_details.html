@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Seasons</title>
+</head>
+<body>
+    <h1>Crop Seasons</h1>
+    <ul>
+        {% for season in crop_seasons %}
+            <li>{{ season.year }} - {{ season.season }}</li>
+        {% endfor %}
+    </ul>
+
+    <h1>Ownership Details</h1>
+    {% if ownership_details %}
+        <ul>
+            {% for owner in ownership_details %}
+                <li>
+                    Name: {{ owner.name }}<br>
+                    Father's Name: {{ owner.father_name }}<br>
+                    Area: {{ owner.area }} acres
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No ownership details available.</p>
+    {% endif %}
+</body>
+</html>
